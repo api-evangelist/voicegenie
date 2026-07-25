@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: VoiceGenie Public REST Calls API
+  version: '1.0'
+  description: The VoiceGenie Public REST API lets you automate voice workflows by connecting VoiceGenie to external tools like n8n, Zoho Flow, Zapier, or custom applications. You can programmatically place calls, add calls to recurring campaigns, pause/resume campaigns, fetch call analysis and status, retrieve inbound-call updates, check transfer status, and remove customers from a campaign. Authentication is performed by including an API token (apiKey/token) and a workspaceId in the JSON request payload; generate the token from the dashboard under Developer APIs / System -> APIs. This description was generated from VoiceGenie's public developer documentation; request and response bodies reflect the documented fields.
+  contact:
+    name: VoiceGenie Support
+    email: support@voicegenie.ai
+    url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+  termsOfService: https://voicegenie.ai/terms
+servers:
+- url: https://core-saas.voicegenie.ai
+  description: VoiceGenie production API
+tags:
+- name: Calls
+  description: Place and track voice calls.
+paths:
+  /api/v1/publicRestApiActions/placeCall:
+    post:
+      tags:
+      - Calls
+      operationId: placeCall
+      summary: Place a call
+      description: Place a call to a customer number using a campaign's configuration. customerNumber must be E.164 formatted. Optional customerInformation is passed through as dynamic variables.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceCallRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+              customerNumber: '+1234567890'
+              customerInformation:
+                first_name: John
+                last_name: Doe
+                email: john@example.com
+      responses:
+        '200':
+          description: Call placed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/publicRestApiActions/callAnalysisOrStatus:
+    post:
+      tags:
+      - Calls
+      operationId: callAnalysisOrStatus
+      summary: Get call analysis or status
+      description: Retrieve the analysis (transcript) or the latest status for a customer call. Set action to "analysis" for transcripts or "status" for state.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallAnalysisRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+              customerNumber: '+1234567890'
+              action: analysis
+      responses:
+        '200':
+          description: Call analysis or status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/publicRestApiActions/inboundCallUpdate:
+    post:
+      tags:
+      - Calls
+      operationId: inboundCallUpdate
+      summary: Get inbound calls
+      description: Fetch recent inbound-call updates for a campaign to sync with your workflows.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignScopedRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+      responses:
+        '200':
+          description: Inbound-call updates.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/publicRestApiActions/checkCallTransferStatus:
+    post:
+      tags:
+      - Calls
+      operationId: checkCallTransferStatus
+      summary: Check transfer status
+      description: Check whether a call transfer is pending, completed, or failed for a given campaign.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignScopedRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+      responses:
+        '200':
+          description: Transfer status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    CallAnalysisRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - customerNumber
+      - action
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
+          type: string
+        action:
+          type: string
+          enum:
+          - analysis
+          - status
+    GenericResponse:
+      type: object
+      description: Generic success envelope (shape not fully documented publicly).
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+    CampaignScopedRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+    CustomerInformation:
+      type: object
+      description: Optional key/value strings passed through as dynamic variables into the script.
+      additionalProperties:
+        type: string
+      example:
+        first_name: John
+        last_name: Doe
+        email: john@example.com
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+    PlaceCallRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - customerNumber
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
+          type: string
+          description: E.164 phone number, e.g. "+1234567890".
+        customerInformation:
+          $ref: '#/components/schemas/CustomerInformation'

@@ -1,0 +1,194 @@
+openapi: 3.0.3
+info:
+  title: VoiceGenie Public REST Calls Campaigns API
+  version: '1.0'
+  description: The VoiceGenie Public REST API lets you automate voice workflows by connecting VoiceGenie to external tools like n8n, Zoho Flow, Zapier, or custom applications. You can programmatically place calls, add calls to recurring campaigns, pause/resume campaigns, fetch call analysis and status, retrieve inbound-call updates, check transfer status, and remove customers from a campaign. Authentication is performed by including an API token (apiKey/token) and a workspaceId in the JSON request payload; generate the token from the dashboard under Developer APIs / System -> APIs. This description was generated from VoiceGenie's public developer documentation; request and response bodies reflect the documented fields.
+  contact:
+    name: VoiceGenie Support
+    email: support@voicegenie.ai
+    url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+  termsOfService: https://voicegenie.ai/terms
+servers:
+- url: https://core-saas.voicegenie.ai
+  description: VoiceGenie production API
+tags:
+- name: Campaigns
+  description: Manage outbound/inbound campaigns and their contacts.
+paths:
+  /api/v1/pushCallToCampaign:
+    post:
+      tags:
+      - Campaigns
+      operationId: pushCallToCampaign
+      summary: Add a call to a recurring campaign
+      description: Queue a new call for a customer number inside an existing recurring campaign. The token, workspaceId, campaignId and customerNumber must be present strings; customerNumber must be in E.164 format (leading country code with a plus sign, no spaces, hyphens or brackets).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushCallRequest'
+            example:
+              token: your-api-token
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+              customerNumber: '+10000000000'
+              customerInformation:
+                first_name: Yawar
+                last_name: Mushtaq
+      responses:
+        '200':
+          description: Call queued to the campaign.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error (missing field, or malformed customerNumber).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/publicRestApiActions/editCampaign:
+    put:
+      tags:
+      - Campaigns
+      operationId: editCampaign
+      summary: Pause or resume a campaign
+      description: Pause or resume a running campaign by specifying the campaignId and desired action.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditCampaignRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+              action: pause
+      responses:
+        '200':
+          description: Campaign updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/publicRestApiActions/pullCustomerFromCampaign:
+    put:
+      tags:
+      - Campaigns
+      operationId: pullCustomerFromCampaign
+      summary: Remove a customer from a campaign
+      description: Remove a specific customer number from an ongoing campaign to stop further outreach. customerNumber must be E.164 formatted.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullCustomerRequest'
+            example:
+              apiKey: your-api-key
+              workspaceId: your-workspace-id
+              campaignId: your-campaign-id
+              customerNumber: '+1234567890'
+      responses:
+        '200':
+          description: Customer removed from campaign.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    GenericResponse:
+      type: object
+      description: Generic success envelope (shape not fully documented publicly).
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+    CustomerInformation:
+      type: object
+      description: Optional key/value strings passed through as dynamic variables into the script.
+      additionalProperties:
+        type: string
+      example:
+        first_name: John
+        last_name: Doe
+        email: john@example.com
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+    EditCampaignRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - action
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        action:
+          type: string
+          enum:
+          - pause
+          - resume
+    PushCallRequest:
+      type: object
+      required:
+      - token
+      - workspaceId
+      - campaignId
+      - customerNumber
+      properties:
+        token:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
+          type: string
+          description: E.164 phone number, e.g. "+10000000000".
+        customerInformation:
+          $ref: '#/components/schemas/CustomerInformation'
+    PullCustomerRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - customerNumber
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
+          type: string
