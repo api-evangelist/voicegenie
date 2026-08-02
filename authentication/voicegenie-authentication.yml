@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+docs: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+summary:
+  types: [apiKey]
+  api_key_in: [body]
+  oauth2_flows: []
+  note: >-
+    VoiceGenie authenticates by including an API token and a workspaceId inside the JSON request
+    payload (not an HTTP header). This is a non-standard, body-carried API-key scheme, so it is not
+    expressed as an OpenAPI securityScheme; the credential fields are documented as required request
+    properties instead.
+schemes:
+- name: apiToken
+  type: apiKey
+  in: body
+  field: token
+  description: >-
+    API token for the pushCallToCampaign endpoint. Generated in the dashboard under
+    Developer APIs -> Generate Token. Sent in the JSON body.
+  sources: [https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0]
+- name: apiKey
+  type: apiKey
+  in: body
+  field: apiKey
+  description: >-
+    Developer API key for the publicRestApiActions endpoints. Copied/regenerated in the dashboard
+    under System -> APIs. Sent in the JSON body. Keep private.
+  sources: [https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration]
+- name: workspaceId
+  type: apiKey
+  in: body
+  field: workspaceId
+  description: >-
+    Workspace identifier required alongside the token/apiKey. Constant for the account even when the
+    token is regenerated.
+  sources: [https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration]
+token_management:
+  generate: Dashboard -> Developer APIs -> Generate Token (or System -> APIs -> Regenerate Token)
+  rotation: Regenerating the token does not change the workspaceId.

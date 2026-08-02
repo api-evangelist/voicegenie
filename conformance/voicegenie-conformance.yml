@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/voicegenie-openapi.yml
+note: >-
+  Derived from the generated OpenAPI and the public developer docs. VoiceGenie publishes no
+  certifications or a compliance/trust program, so no Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: false
+  evidence: Auth is a body-carried API key + workspaceId, not OAuth2.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json responses documented.
+- id: rest-json
+  conforms: true
+  evidence: HTTPS JSON request/response over POST/PUT.
+- id: e164-phone-numbers
+  conforms: true
+  evidence: customerNumber must be E.164 formatted.
+- id: webhooks
+  conforms: true
+  evidence: Post-call analysis delivered via outbound POST webhook expecting 200.
+- id: openapi-3
+  conforms: true
+  evidence: Captured as OpenAPI 3.0.3 (generated from docs).

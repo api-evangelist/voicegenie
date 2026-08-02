@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/voicegenie-openapi.yml
+skills:
+- file: voicegenie-place-and-track-call.md
+  name: Place a VoiceGenie call and track its outcome
+  api: openapi/voicegenie-openapi.yml
+  operations: [placeCall, callAnalysisOrStatus, checkCallTransferStatus, pullCustomerFromCampaign]
+- file: voicegenie-run-campaign.md
+  name: Feed and control a VoiceGenie campaign
+  api: openapi/voicegenie-openapi.yml
+  operations: [pushCallToCampaign, editCampaign, inboundCallUpdate]

@@ -1,23 +1,165 @@
 aid: voicegenie
 name: VoiceGenie
-description: VoiceGenie is a company surfaced as a portfolio company of insight-partners and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  VoiceGenie (Ori Labs Ltd.) is a conversational voice AI platform for sales automation that lets
+  teams deploy AI voice agents to run outbound and inbound phone calls end to end. Businesses build
+  assistants (voice bots) with a chosen voice, language, script and knowledge base, attach a phone
+  number (via Twilio or Plivo), upload contact lists, and launch campaigns that qualify leads, book
+  meetings, send SMS, run surveys, chase payment reminders, and hand off to human agents when needed.
+  VoiceGenie exposes a Public REST API on core-saas.voicegenie.ai for placing calls, adding calls to
+  recurring campaigns, pausing/resuming campaigns, fetching call analysis and status, retrieving
+  inbound-call updates, checking transfer status, and removing customers from campaigns, plus a
+  post-call analysis webhook, so voice workflows can be automated from n8n, Zapier, Zoho Flow,
+  HubSpot, HighLevel, Cal.com and custom applications.
 url: https://raw.githubusercontent.com/api-evangelist/voicegenie/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - insight-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profile
+x-tier-reason: enriched-real-api
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+image: https://voicegenie.ai/images/vg_logo_name.svg
 tags:
 - Company
-apis: []
+- Voice AI
+- Conversational AI
+- Sales Automation
+- Voice Agents
+- Telephony
+- Call Center
+- Customer Support
+- Lead Generation
+- Webhooks
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: voicegenie:voicegenie-calls-api
+  name: VoiceGenie Calls API
+  description: Place and track voice calls.
+  humanURL: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+  baseURL: https://core-saas.voicegenie.ai
+  tags:
+  - Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/voicegenie-calls-api-openapi.yml
+  - type: Documentation
+    url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+  - type: APIReference
+    url: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+  - type: Authentication
+    url: authentication/voicegenie-authentication.yml
+  - type: Conventions
+    url: conventions/voicegenie-conventions.yml
+  - type: ErrorCatalog
+    url: errors/voicegenie-problem-types.yml
+  - type: DataModel
+    url: data-model/voicegenie-data-model.yml
+  - type: Webhooks
+    url: asyncapi/voicegenie-webhooks.yml
+- aid: voicegenie:voicegenie-campaigns-api
+  name: VoiceGenie Campaigns API
+  description: Manage outbound/inbound campaigns and their contacts.
+  humanURL: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+  baseURL: https://core-saas.voicegenie.ai
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/voicegenie-campaigns-api-openapi.yml
+  - type: Documentation
+    url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+  - type: APIReference
+    url: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+  - type: Authentication
+    url: authentication/voicegenie-authentication.yml
+  - type: Conventions
+    url: conventions/voicegenie-conventions.yml
+  - type: ErrorCatalog
+    url: errors/voicegenie-problem-types.yml
+  - type: DataModel
+    url: data-model/voicegenie-data-model.yml
+  - type: Webhooks
+    url: asyncapi/voicegenie-webhooks.yml
+common:
+- url: https://voicegenie.ai
+  type: Website
+- url: https://voicegenie.gitbook.io/voicegenie-ai
+  type: DeveloperPortal
+- url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+  type: Documentation
+- url: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+  type: APIReference
+- url: https://voicegenie.gitbook.io/voicegenie-ai/welcome-to-voicegenie-ai
+  type: GettingStarted
+- url: https://blogs.voicegenie.ai/
+  type: Blog
+- url: https://voicegenie.ai/pricing
+  type: Pricing
+- url: https://app.voicegenie.ai/
+  type: SignUp
+- url: https://app.voicegenie.ai/
+  type: Login
+- url: https://voicegenie.ai/terms
+  type: TermsOfService
+- url: https://voicegenie.ai/privacy-policy
+  type: PrivacyPolicy
+- url: mailto:support@voicegenie.ai
+  type: Support
+- url: https://cal.com/voicegenie/demo
+  type: Demo
+- url: https://www.linkedin.com/company/voicegenie
+  type: LinkedIn
+- url: https://twitter.com/voicegenie_ai
+  type: Twitter
+- url: https://www.youtube.com/@VoiceGenieAI
+  type: YouTube
+- url: https://www.instagram.com/voicegenie.ai/
+  type: Instagram
+- url: llms/voicegenie-llms.txt
+  type: LLMsTxt
+- url: authentication/voicegenie-authentication.yml
+  type: Authentication
+- url: conventions/voicegenie-conventions.yml
+  type: Conventions
+- url: errors/voicegenie-problem-types.yml
+  type: ErrorCatalog
+- url: lifecycle/voicegenie-lifecycle.yml
+  type: Lifecycle
+- url: conformance/voicegenie-conformance.yml
+  type: Conformance
+- url: data-model/voicegenie-data-model.yml
+  type: DataModel
+- url: security/voicegenie-domain-security.yml
+  type: DomainSecurity
+- url: mcp/voicegenie-mcp.yml
+  type: MCPServer
+- url: asyncapi/voicegenie-webhooks.yml
+  type: Webhooks
+- url: agentic-access/voicegenie-agentic-access.yml
+  type: AgenticAccess
+- url: skills/_index.yml
+  type: AgentSkill

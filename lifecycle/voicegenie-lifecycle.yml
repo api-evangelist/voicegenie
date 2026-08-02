@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+versioning:
+  scheme: uri-path
+  current: v1
+  api_version_label: '1.0'
+  docs: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation/sunset policy is published.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_note: No public status page was found for voicegenie.ai / core-saas.voicegenie.ai.
+deprecated_operations: []

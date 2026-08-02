@@ -1,0 +1,56 @@
+# generated: '2026-07-21'
+# method: searched
+# source: https://voicegenie.gitbook.io/voicegenie-ai/llms.txt
+
+# VoiceGenie AI
+
+## VoiceGenie AI
+
+- [Welcome to VoiceGenie AI](https://voicegenie.gitbook.io/voicegenie-ai/welcome-to-voicegenie-ai.md): VoiceGenie AI: Your 24/7 Voice Assistant: Automate sales calls, customer support, and appointment booking with AI agents that sound human and work around the clock.
+- [VoiceGenie AI Features](https://voicegenie.gitbook.io/voicegenie-ai/overview/voicegenie-ai-features.md): Here is a quick walk through of VoiceGenie AI platform
+- [Assistants](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants.md): These are voice bots that interact with your contacts and handle tasks aligned with your goals at any time.
+- [Creating an Assistant](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant.md): Assistants are voice bots used in campaigns to communicate with your contacts and help you achieve specific objectives.
+- [Goal](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/goal.md): The goal is what you want the assistant to achieve during each call.
+- [Welcome Message](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/welcome-message.md): Its the introductory message that Assistant's begins the call with once the contacts answer the call
+- [Script](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/script.md): The script defines the conversation flow between the assistant and customers. It guides the assistant's responses to ensure the call proceeds smoothly and as intended.
+- [How to write a script](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/script/how-to-write-a-script.md): This page provides guidance on different prompting styles to help you write effective and efficient scripts for your assistant.
+- [Personalizing Script](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/script/personalizing-script.md): Using Dynamic Variables in Assistants
+- [Actions](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/actions.md): Customer Actions During a Call
+- [Transfer to human](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/actions/transfer-to-human.md): This feature allows the assistant to transfer calls to a live human agent whenever a customer requests it.
+- [Webhooks](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/actions/webhooks.md): This page explains the working and use cases for webhooks
+- [Custom SMS](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/actions/custom-sms.md): This feature allows an assistant to automatically send a predefined SMS message during a call.
+- [Accents and languages](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/creating-an-assistant/accents-and-languages.md): The language and accent in which you'd like your assistant to communicate with your contacts
+- [Test an Assistant](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/test-an-assistant.md): What Process to follow in order to test your Assistant before running a campaign using it.
+- [Clone An assistant](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/clone-an-assistant.md): Steps to clone a assistant
+- [Phone Numbers](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/phone-numbers.md): A Phone Number is the calling number used in your campaigns to connect with your customers.
+- [Integrate Phone number](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/phone-numbers/integrate-phone-number.md): This page explains the simple process to integrate your Twilio (or Plivo) number with your VoiceGenie account.
+- [Contact List](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/contact-list.md): This page describes everything we need to know about contacts
+- [Creating contact List](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/contact-list/creating-contact-list.md): This page explains how add a contact list
+- [Adding Contacts to List](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/contact-list/adding-contacts-to-list.md): This page will teach us how to add contacts to the contact list
+- [Modifying contacts](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/contact-list/modifying-contacts.md): This page describes the process of modifying existing contact list
+- [Campaigns](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns.md): This page explains everything we need to know about running campaigns.
+- [Types of Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/types-of-campaign.md): This page explains the difference between the different types of campaigns.
+- [Outbound Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/types-of-campaign/outbound-campaign.md)
+- [InBound Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/types-of-campaign/inbound-campaign.md)
+- [Status of a Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/status-of-a-campaign.md): The page explains the different states a campaign can have
+- [Post Call Analysis](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/post-call-analysis.md): This page explains how to get the most of out of campaign analytics.
+- [Webhook Payload/Response](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/post-call-analysis/webhook-payload-response.md)
+- [Campaign Scheduling](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/campaign-scheduling.md): This page explains how campaign scheduling works
+- [Deleting a Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/deleting-a-campaign.md)
+- [Clone A Campaign](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/clone-a-campaign.md)
+- [Demo Campaigns](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/demo-campaigns.md)
+- [Dynamic Personalization Detailed Explanation.](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/dynamic-personalization-detailed-explanation..md): This page explains the dynamic variables in detail.
+- [Using dynamic variables](https://voicegenie.gitbook.io/voicegenie-ai/product-guides/dynamic-personalization-detailed-explanation./using-dynamic-variables.md): This page explains the how to use dynamic variables in assistant.
+- [Developer documentation 1.0](https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0.md)
+- [add call to a recurring campaign](https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0/add-call-to-a-recurring-campaign.md)
+- [Integrations](https://voicegenie.gitbook.io/voicegenie-ai/integrations.md): This page presents various integration options for VoiceGenie, enabling you to enhance functionality and streamline workflows for a more efficient user experience.
+- [HubSpot](https://voicegenie.gitbook.io/voicegenie-ai/integrations/hubspot.md): It is a CRM platform which  provides an all-in-one solution for tracking and optimizing your customer interactions.
+- [ElevenLabs](https://voicegenie.gitbook.io/voicegenie-ai/integrations/elevenlabs.md): EevenLabs is used to generate realistic speech, which improves the overall interaction quality. This integration allows VoiceGeni to offer more human-like responses, making conversations feel smooth
+- [HighLevel](https://voicegenie.gitbook.io/voicegenie-ai/integrations/highlevel.md): HighLevel is a marketing platform designed for users to manage client relationships, automate marketing efforts, and improve lead generation.
+- [Cal](https://voicegenie.gitbook.io/voicegenie-ai/integrations/cal.md): Cal.com integration empowers VoiceGenie to handle meeting scheduling directly during calls. It connects your calendar to ensure leads can book time with you effortlessly and accurately.
+- [Public API Integration](https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration.md)
+- [Knowledge Base](https://voicegenie.gitbook.io/voicegenie-ai/knowledge-base.md): This page explains everything we need to know about Knowledge Base.
+- [Creating a Knowledge Base: The First Step to Empowering Your Assistant 🧠✨](https://voicegenie.gitbook.io/voicegenie-ai/knowledge-base/creating-a-knowledge-base-the-first-step-to-empowering-your-assistant.md): This page — Creating a Knowledge Base — is your starting point to train the assistant with specific, curated information. It helps your assistant provide precise and well-in
+- [Adding Content to the Knowledge Base: Build Your Assistant’s Training Arsenal 🧠✨](https://voicegenie.gitbook.io/voicegenie-ai/knowledge-base/adding-content-to-the-knowledge-base-build-your-assistants-training-arsenal.md): Once you’ve created a Knowledge Base, it’s time to populate it with resources. You can add two types of resources: Links and PDFs.
+- [Training Your Knowledge Base: Preparing Your Assistant for Success 🧠💡](https://voicegenie.gitbook.io/voicegenie-ai/knowledge-base/training-your-knowledge-base-preparing-your-assistant-for-success.md): After adding resources like PDFs and Links to your Knowledge Base, the next critical step is to train it. Training ensures the assistant can effectively use the added content to answer queries.
+- [Linking a Knowledge Base to an Assistant](https://voicegenie.gitbook.io/voicegenie-ai/knowledge-base/linking-a-knowledge-base-to-an-assistant.md): Once you’ve created and trained your Knowledge Base, the next step is to link it to an assistant. This ensures your assistant has access to the Knowledge Base for answering queries.

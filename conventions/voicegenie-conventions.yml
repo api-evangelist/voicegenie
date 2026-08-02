@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+authentication:
+  style: body-carried api key
+  detail: apiKey (or token) + workspaceId sent inside the JSON request payload.
+  ref: authentication/voicegenie-authentication.yml
+transport:
+  protocol: HTTPS
+  content_type: application/json
+  methods_used: [POST, PUT]
+  base_url: https://core-saas.voicegenie.ai
+  path_prefix: /api/v1
+idempotency:
+  supported: false
+  note: No idempotency-key header/parameter is documented for the Public REST API.
+pagination:
+  supported: false
+  note: No pagination scheme is documented; call-scoped reads are keyed by campaignId + customerNumber.
+identifiers:
+  phone_number_format: E.164 (leading country code with a plus sign; no spaces, hyphens or brackets)
+  campaignId: opaque string
+  workspaceId: opaque string, constant per account
+dynamic_variables:
+  field: customerInformation
+  detail: >-
+    An optional object of string key/value pairs (e.g. first_name, last_name, email) merged into the
+    assistant script as dynamic variables.
+error_envelope:
+  ref: errors/voicegenie-problem-types.yml
+  note: >-
+    Errors are returned as JSON. A rich problem-type registry is not published; validation failures
+    (missing required fields, malformed customerNumber) return client errors.
+webhooks:
+  ref: asyncapi/voicegenie-webhooks.yml
+  note: Post-call analysis is delivered by an outbound webhook that must accept POST and return 200.
+rate_limiting:
+  documented: false
+  note: No rate-limit headers or quotas are documented for the REST API. Usage plans are minute-based (see pricing).
+versioning:
+  ref: lifecycle/voicegenie-lifecycle.yml
+  scheme: uri-path
+  current: v1

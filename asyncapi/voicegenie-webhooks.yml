@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/post-call-analysis/webhook-payload-response
+spec_type: Webhooks
+note: >-
+  VoiceGenie publishes no AsyncAPI document. It documents a single outbound post-call webhook: when a
+  campaign has Post Call Analysis enabled with a webhook configured, VoiceGenie sends an HTTP POST to
+  the subscriber URL after each call. The endpoint must accept POST and return HTTP 200.
+webhooks:
+- name: post-call-analysis
+  direction: outbound
+  method: POST
+  content_type: application/json
+  expected_response: 200
+  configured_in: Assistant -> Post Call Analysis -> Enable -> add webhook (existing or new); selected during campaign creation
+  description: Delivers the data gathered from each customer interaction after the call completes.
+  payload_fields:
+  - name: Transcript
+    description: The call transcript.
+  - name: PhoneNumber
+    description: Phone number of the customer.
+  - name: CustomerSpecificData
+    description: Additional customer information (e.g. Email) if provided in the contact.
+  - name: Duration
+    description: Call duration in minutes (ceil; 23s -> 1, 61s -> 2).
+  - name: InformationGathered
+    description: The information configured to be collected from the conversation during campaign setup.
+  - name: AnswersToQuestion
+    description: Object of answers to the questions added during campaign creation, in insertion order (Question1, Question2, ...).

@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/voicegenie-openapi.yml + https://voicegenie.gitbook.io/voicegenie-ai
+note: >-
+  Entity graph derived from the Public REST API request fields and the product documentation
+  (Assistants, Phone Numbers, Contact Lists, Campaigns, Knowledge Base, Calls).
+entities:
+- name: Workspace
+  id_field: workspaceId
+  description: Account-level container; constant identifier that scopes all other resources.
+- name: Assistant
+  description: A voice bot configured with a goal, welcome message, script, accent/language and actions.
+- name: KnowledgeBase
+  description: Curated links/PDFs trained and linked to an assistant to ground its answers.
+- name: PhoneNumber
+  description: Calling number (integrated via Twilio or Plivo) used to place/receive calls.
+- name: ContactList
+  description: A list of contacts (customerNumber + optional customerInformation) targeted by a campaign.
+- name: Contact
+  id_field: customerNumber
+  description: A single customer phone number (E.164) with optional dynamic-variable fields.
+- name: Campaign
+  id_field: campaignId
+  description: An outbound or inbound run that pairs an assistant + phone number + contact list.
+- name: Call
+  description: A single placed/received call with transcript, status, duration and gathered information.
+relationships:
+- from: Assistant
+  to: KnowledgeBase
+  type: has_many
+  via: linked knowledge base
+- from: Campaign
+  to: Assistant
+  type: belongs_to
+  via: assistant
+- from: Campaign
+  to: PhoneNumber
+  type: belongs_to
+  via: phone number
+- from: Campaign
+  to: ContactList
+  type: has_one
+  via: contact list
+- from: ContactList
+  to: Contact
+  type: has_many
+  via: customerNumber
+- from: Campaign
+  to: Call
+  type: has_many
+  via: campaignId
+- from: Call
+  to: Contact
+  type: belongs_to
+  via: customerNumber
+- from: Campaign
+  to: Workspace
+  type: belongs_to
+  via: workspaceId

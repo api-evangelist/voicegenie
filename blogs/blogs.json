@@ -1,0 +1,21 @@
+{
+  "repo": "voicegenie",
+  "feeds": [
+    {
+      "source": "https://blogs.voicegenie.ai/rss/",
+      "feed_url": "https://blogs.voicegenie.ai/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://blogs.voicegenie.ai/",
+      "feed_url": "https://blogs.voicegenie.ai/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 50,
+  "fetched": "2026-08-01T15:49:00Z"
+}

@@ -1,0 +1,16 @@
+{
+  "provider": "voicegenie",
+  "sources": [
+    "voicegenie-calls-api-openapi.yml",
+    "voicegenie-campaigns-api-openapi.yml"
+  ],
+  "outputs": [
+    "voicegenie-calls-api-openapi.yml",
+    "voicegenie-campaigns-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
