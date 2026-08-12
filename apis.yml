@@ -105,6 +105,8 @@ apis:
   - type: Webhooks
     url: asyncapi/voicegenie-webhooks.yml
 common:
+- type: Overlay
+  url: overlays/voicegenie-openapi-overlay.yaml
 - url: https://voicegenie.ai
   type: Website
 - url: https://voicegenie.gitbook.io/voicegenie-ai
