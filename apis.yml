@@ -32,11 +32,11 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-14'
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-14'
   status: enriched
-  artifacts_added: 16
+  artifacts_added: 7
   pass: local-v1
 image: https://voicegenie.ai/images/vg_logo_name.svg
 tags:
@@ -106,7 +106,9 @@ apis:
     url: asyncapi/voicegenie-webhooks.yml
 common:
 - type: Overlay
-  url: overlays/voicegenie-openapi-overlay.yaml
+  url: overlays/voicegenie-calls-api-overlay.yaml
+- type: Overlay
+  url: overlays/voicegenie-campaigns-api-overlay.yaml
 - url: https://voicegenie.ai
   type: Website
 - url: https://voicegenie.gitbook.io/voicegenie-ai
@@ -165,3 +167,11 @@ common:
   type: AgenticAccess
 - url: skills/_index.yml
   type: AgentSkill
+- url: plans/voicegenie-plans-pricing.yml
+  type: Plans
+- url: rate-limits/voicegenie-rate-limits.yml
+  type: RateLimits
+- url: packages/voicegenie-packages.yml
+  type: Packages
+- url: sandbox/voicegenie-sandbox.yml
+  type: Sandbox
