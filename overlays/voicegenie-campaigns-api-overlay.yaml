@@ -1,0 +1,40 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the VoiceGenie Campaigns API
+  version: 1.0.1
+extends: openapi/voicegenie-campaigns-api-openapi.yml
+x-generated: '2026-08-14'
+x-method: generated
+x-note: >-
+  Companion to overlays/voicegenie-calls-api-overlay.yaml. Supersedes the single
+  overlays/voicegenie-openapi-overlay.yaml written before the spec was refined into one document per
+  tag. Never mutates the underlying OpenAPI.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-08-14'
+    x-api-evangelist-provider: voicegenie
+    x-authentication: authentication/voicegenie-authentication.yml
+    x-conventions: conventions/voicegenie-conventions.yml
+    x-errors: errors/voicegenie-problem-types.yml
+    x-webhooks: asyncapi/voicegenie-webhooks.yml
+    x-data-model: data-model/voicegenie-data-model.yml
+    x-rate-limits: rate-limits/voicegenie-rate-limits.yml
+    x-plans: plans/voicegenie-plans-pricing.yml
+    x-sandbox: sandbox/voicegenie-sandbox.yml
+- target: $.paths['/api/v1/pushCallToCampaign'].post
+  update:
+    x-agent-consequence: physical
+    x-note: >-
+      Queues a real outbound call inside a recurring campaign; the call is placed by the campaign
+      scheduler and bills plan minutes. No idempotency key, so a retry queues a duplicate call.
+- target: $.paths['/api/v1/publicRestApiActions/editCampaign'].put
+  update:
+    x-agent-consequence: write
+    x-note: Pauses or resumes an active calling campaign; affects every contact still queued.
+- target: $.paths['/api/v1/publicRestApiActions/pullCustomerFromCampaign'].post
+  update:
+    x-agent-consequence: write
+    x-note: >-
+      Removes a customer number from an ongoing campaign. Destructive with respect to the queue and
+      commonly used as an opt-out/do-not-call action, so it should not be reversed automatically.

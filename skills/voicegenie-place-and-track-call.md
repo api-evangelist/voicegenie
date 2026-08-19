@@ -1,7 +1,7 @@
 ---
 name: Place a VoiceGenie call and track its outcome
 description: Place an outbound voice call to a customer inside a campaign, then retrieve the call's analysis or status.
-api: openapi/voicegenie-openapi.yml
+api: openapi/_original/voicegenie-openapi.yml
 operations: [placeCall, callAnalysisOrStatus, checkCallTransferStatus, pullCustomerFromCampaign]
 ---
 

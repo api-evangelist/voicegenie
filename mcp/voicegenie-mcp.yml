@@ -1,9 +1,8 @@
 generated: '2026-07-21'
 method: derived
 status: candidate
-source: openapi/voicegenie-openapi.yml
-note: >-
-  No official hosted/remote VoiceGenie MCP server was found. This is a candidate tool list derived
+source: openapi/_original/voicegenie-openapi.yml
+note: No official hosted/remote VoiceGenie MCP server was found. This is a candidate tool list derived
   one-to-one from the Public REST API operations, for building an MCP wrapper.
 server:
   name: voicegenie
@@ -11,22 +10,28 @@ server:
 tools:
 - name: place_call
   description: Place a call to a customer number using a campaign's configuration.
-  source_operation: openapi/voicegenie-openapi.yml#placeCall
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#placeCall
 - name: push_call_to_campaign
   description: Add a call for a customer number to an existing recurring campaign.
-  source_operation: openapi/voicegenie-openapi.yml#pushCallToCampaign
+  source_operation: openapi/voicegenie-campaigns-api-openapi.yml#pushCallToCampaign
 - name: call_analysis_or_status
   description: Retrieve the analysis (transcript) or latest status for a customer call.
-  source_operation: openapi/voicegenie-openapi.yml#callAnalysisOrStatus
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#callAnalysisOrStatus
 - name: edit_campaign
   description: Pause or resume a running campaign.
-  source_operation: openapi/voicegenie-openapi.yml#editCampaign
+  source_operation: openapi/voicegenie-campaigns-api-openapi.yml#editCampaign
 - name: inbound_call_update
   description: Fetch recent inbound-call updates for a campaign.
-  source_operation: openapi/voicegenie-openapi.yml#inboundCallUpdate
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#inboundCallUpdate
 - name: check_call_transfer_status
   description: Check whether a call transfer is pending, completed, or failed.
-  source_operation: openapi/voicegenie-openapi.yml#checkCallTransferStatus
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#checkCallTransferStatus
 - name: pull_customer_from_campaign
   description: Remove a specific customer number from an ongoing campaign.
-  source_operation: openapi/voicegenie-openapi.yml#pullCustomerFromCampaign
+  source_operation: openapi/voicegenie-campaigns-api-openapi.yml#pullCustomerFromCampaign
+deployment:
+  mode: none
+  verified: derived
+  tools: 7
+  checked: '2026-08-12'
+  source: catalog MCP census

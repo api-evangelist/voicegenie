@@ -1,0 +1,66 @@
+generated: '2026-08-14'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/demo-campaigns
+docs:
+- https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/demo-campaigns
+- https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/test-an-assistant
+kind: dashboard-test-mode
+api_sandbox: false
+test_live_separation:
+  key_prefixes: false
+  separate_test_credentials: false
+  separate_test_host: false
+  note: >-
+    There is no test-vs-live credential split. A workspace has ONE workspaceId and ONE API token
+    (System -> APIs), and the Public REST API has a single production host,
+    https://core-saas.voicegenie.ai. Test mode is a per-campaign flag set in the dashboard, not an
+    API mode - a call placed through the API against a live campaign dials a real phone number and
+    consumes real plan minutes.
+modes:
+- name: Demo Campaign (Test mode)
+  where: Campaign page -> turn on Test mode
+  description: >-
+    Creates a campaign that calls only the number you enter, so an assistant can be exercised end to
+    end before a real contact list is loaded.
+  requirements: >-
+    No Twilio/Plivo phone number is required to run a demo campaign - the docs call this out
+    explicitly. Assistant, campaign name and your own receiving number are still required.
+  supports:
+  - actions
+  - post call analysis
+- name: Test Your Bot
+  where: Assistants -> assistant page -> Test Your Bot
+  description: Places a one-off test call to exercise the assistant's script and conversation flow.
+  options:
+  - name: Native Dialer
+    detail: Choose/Change the calling number, then Start Call manually.
+  - name: Web Calling
+    detail: The call is placed directly through the system automatically (browser audio, no dialer).
+test_values:
+  cards: []
+  phone_numbers: []
+  tokens: []
+  note: >-
+    VoiceGenie publishes no magic test values - no test phone numbers, no simulator identifiers, no
+    fixture tokens. Testing is done against your own real phone number. Nothing here is invented.
+time_simulation:
+  supported: false
+fixtures_or_triggers:
+  supported: false
+free_trial_allowance:
+  length: 7 days
+  minutes: 30
+  note: >-
+    The 7-day free trial (30 voice minutes) is the closest thing to a metered evaluation sandbox;
+    minutes expire with the trial. See plans/voicegenie-plans-pricing.yml.
+gaps:
+  - No API-addressable sandbox or test host.
+  - No test-mode API key, so an agent cannot distinguish a rehearsal call from a live one.
+  - No published test numbers, so every test dials a real handset and burns plan minutes.
+x-evidence:
+- url: https://voicegenie.gitbook.io/voicegenie-ai/product-guides/campaigns/demo-campaigns.md
+  status: 200
+  fetched: '2026-08-14'
+- url: https://voicegenie.gitbook.io/voicegenie-ai/product-guides/assistants/test-an-assistant.md
+  status: 200
+  fetched: '2026-08-14'

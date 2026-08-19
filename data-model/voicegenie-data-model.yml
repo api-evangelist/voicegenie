@@ -1,6 +1,6 @@
 generated: '2026-07-21'
 method: derived
-source: openapi/voicegenie-openapi.yml + https://voicegenie.gitbook.io/voicegenie-ai
+source: openapi/_original/voicegenie-openapi.yml + https://voicegenie.gitbook.io/voicegenie-ai
 note: >-
   Entity graph derived from the Public REST API request fields and the product documentation
   (Assistants, Phone Numbers, Contact Lists, Campaigns, Knowledge Base, Calls).

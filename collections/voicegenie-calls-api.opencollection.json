@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VoiceGenie Public REST Calls API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Place a call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/placeCall",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Place a call to a customer number using a campaign's configuration. customerNumber must be E.164 formatted. Optional customerInformation is passed through as dynamic variables."
+        },
+        {
+          "info": {
+            "name": "Get call analysis or status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/callAnalysisOrStatus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the analysis (transcript) or the latest status for a customer call. Set action to \"analysis\" for transcripts or \"status\" for state."
+        },
+        {
+          "info": {
+            "name": "Get inbound calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/inboundCallUpdate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch recent inbound-call updates for a campaign to sync with your workflows."
+        },
+        {
+          "info": {
+            "name": "Check transfer status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/checkCallTransferStatus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether a call transfer is pending, completed, or failed for a given campaign."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

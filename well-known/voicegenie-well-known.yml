@@ -1,0 +1,125 @@
+generated: '2026-08-14'
+method: probed
+source: live probe of every VoiceGenie host in apis.yml
+note: >-
+  Recorded absence. No VoiceGenie host serves a real /.well-known/ document. Two distinct failure
+  modes were observed and both are misses, not hits:
+  (1) voicegenie.ai (Next.js) and app.voicegenie.ai (SPA) answer HTTP 200 with an HTML application
+  shell for EVERY /.well-known/* path, including paths that cannot exist - a catch-all, not a
+  document; (2) core-saas.voicegenie.ai, the API host, answers HTTP 401
+  {"statusCode":401,"message":"Session expired. Please log in again"} for every path including
+  /.well-known/*, so nothing is served anonymously.
+  No WellKnown and no SecurityTxt pointer is emitted in apis.yml, because no probe returned a real
+  document.
+hosts:
+- host: https://voicegenie.ai
+  role: website
+  behavior: SPA/Next.js catch-all - 200 with HTML for any /.well-known/* path
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/api-catalog
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/agent.json
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /llms.txt
+    status: 404
+- host: https://core-saas.voicegenie.ai
+  role: api
+  behavior: every path returns HTTP 401 JSON before routing
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+- host: https://app.voicegenie.ai
+  role: dashboard
+  behavior: SPA catch-all - 200 with HTML for any /.well-known/* path
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/openid-configuration
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/api-catalog
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    real_document: false
+    body: HTML application shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    real_document: false
+    body: HTML application shell
+- host: https://blogs.voicegenie.ai
+  role: blog
+  behavior: clean 404s
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+summary:
+  real_documents: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
+llms_txt:
+  served: true
+  url: https://voicegenie.gitbook.io/llms.txt
+  status: 200
+  note: >-
+    The only machine-readable discovery document VoiceGenie serves is the GitBook-generated llms.txt
+    on the docs host (not on voicegenie.ai, which 404s /llms.txt). Captured verbatim at
+    llms/voicegenie-llms.txt.
+checked: '2026-08-14'

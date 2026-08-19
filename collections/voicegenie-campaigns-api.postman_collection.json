@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "d61cf2bd-a29f-4072-b00d-8063e5894bb4",
+      "name": "Campaigns",
+      "description": {
+        "content": "Manage outbound/inbound campaigns and their contacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d699bfe-15e6-4718-9626-3ec54fe32f94",
+          "name": "Add a call to a recurring campaign",
+          "request": {
+            "name": "Add a call to a recurring campaign",
+            "description": {
+              "content": "Queue a new call for a customer number inside an existing recurring campaign. The token, workspaceId, campaignId and customerNumber must be present strings; customerNumber must be in E.164 format (leading country code with a plus sign, no spaces, hyphens or brackets).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pushCallToCampaign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"campaignId\": \"<string>\",\n  \"customerNumber\": \"<string>\",\n  \"customerInformation\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36581504-73c8-4988-a762-6a2751ef8d31",
+              "name": "Call queued to the campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pushCallToCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"your-api-token\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"customerNumber\": \"+10000000000\",\n  \"customerInformation\": {\n    \"first_name\": \"Yawar\",\n    \"last_name\": \"Mushtaq\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14729e54-cc61-4fc8-a444-e7c4b5fb83fd",
+              "name": "Validation error (missing field, or malformed customerNumber).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pushCallToCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"your-api-token\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"customerNumber\": \"+10000000000\",\n  \"customerInformation\": {\n    \"first_name\": \"Yawar\",\n    \"last_name\": \"Mushtaq\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccb52425-e679-4d43-a4a5-662e913395a5",
+          "name": "Pause or resume a campaign",
+          "request": {
+            "name": "Pause or resume a campaign",
+            "description": {
+              "content": "Pause or resume a running campaign by specifying the campaignId and desired action.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "publicRestApiActions",
+                "editCampaign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiKey\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"campaignId\": \"<string>\",\n  \"action\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c685a311-d9a0-4080-ae4c-645d57683a7b",
+              "name": "Campaign updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicRestApiActions",
+                    "editCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiKey\": \"your-api-key\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"action\": \"pause\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9542349-c579-4adb-abbe-2846cebd734f",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicRestApiActions",
+                    "editCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiKey\": \"your-api-key\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"action\": \"pause\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5717c0e4-f21b-42f9-b75d-f6d6f7517916",
+          "name": "Remove a customer from a campaign",
+          "request": {
+            "name": "Remove a customer from a campaign",
+            "description": {
+              "content": "Remove a specific customer number from an ongoing campaign to stop further outreach. customerNumber must be E.164 formatted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "publicRestApiActions",
+                "pullCustomerFromCampaign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiKey\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"campaignId\": \"<string>\",\n  \"customerNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b47a791d-c711-40ff-bbbd-0d0124897068",
+              "name": "Customer removed from campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicRestApiActions",
+                    "pullCustomerFromCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiKey\": \"your-api-key\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"customerNumber\": \"+1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "125c1b96-9109-4a10-95c0-803558d483c0",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "publicRestApiActions",
+                    "pullCustomerFromCampaign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiKey\": \"your-api-key\",\n  \"workspaceId\": \"your-workspace-id\",\n  \"campaignId\": \"your-campaign-id\",\n  \"customerNumber\": \"+1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://core-saas.voicegenie.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "35f165e7-83e1-47d9-99e2-9eb06f79f216",
+    "name": "VoiceGenie Public REST Calls Campaigns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The VoiceGenie Public REST API lets you automate voice workflows by connecting VoiceGenie to external tools like n8n, Zoho Flow, Zapier, or custom applications. You can programmatically place calls, add calls to recurring campaigns, pause/resume campaigns, fetch call analysis and status, retrieve inbound-call updates, check transfer status, and remove customers from a campaign. Authentication is performed by including an API token (apiKey/token) and a workspaceId in the JSON request payload; generate the token from the dashboard under Developer APIs / System -> APIs. This description was generated from VoiceGenie's public developer documentation; request and response bodies reflect the documented fields.\n\nContact Support:\n Name: VoiceGenie Support\n Email: support@voicegenie.ai",
+      "type": "text/plain"
+    }
+  }
+}

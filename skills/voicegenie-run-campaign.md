@@ -1,7 +1,7 @@
 ---
 name: Feed and control a VoiceGenie campaign
 description: Add calls to a recurring campaign, pause/resume it, and sync inbound-call updates.
-api: openapi/voicegenie-openapi.yml
+api: openapi/_original/voicegenie-openapi.yml
 operations: [pushCallToCampaign, editCampaign, inboundCallUpdate]
 ---
 

@@ -1,0 +1,89 @@
+generated: '2026-08-14'
+method: searched
+source: https://voicegenie.ai/pricing
+currency: USD
+billing_periods:
+- monthly
+- yearly
+billing_note: >-
+  The pricing page offers a Monthly / Yearly toggle; the published per-plan prices below are the
+  monthly figures shown by default. The FAQ states quarterly billing is not offered.
+plan_count: 4
+plans:
+- name: Trial
+  positioning: Ideal for businesses just getting started
+  price: 50
+  currency: USD
+  period: month
+  included_quota: 250 Minutes per month
+  limits:
+  - Up to 10 Human Associates
+  support: 'Regular Support: TAT ~24 hours'
+- name: Starter
+  positioning: Suitable for small businesses
+  price: 200
+  currency: USD
+  period: month
+  included_quota: 1000 Minutes per month
+  limits:
+  - Up to 10 Human Associates
+  support: 'Regular Support: TAT ~24 hours'
+- name: Growth
+  positioning: Suitable for growing businesses
+  price: 500
+  currency: USD
+  period: month
+  included_quota: 2500 Minutes per month
+  limits:
+  - Up to 10 Human Associates
+  support: 'Premium Support: TAT ~10 hours'
+- name: Elite
+  positioning: Suitable for large businesses
+  price: 1000
+  currency: USD
+  period: month
+  included_quota: 5000 Minutes per month
+  limits:
+  - Up to 16 Human Associates
+  support: Priority Support - 24x7 technical support
+add_ons:
+- name: Extra Minutes
+  unit: 250 Minutes per pack
+  price: null
+  note: >-
+    The pricing page lists the Extra Minutes add-on with the price rendered as "$ --" — the amount is
+    not published. Each pack adds 250 minutes to the quota.
+enterprise:
+  available: true
+  pricing: contact-sales
+  url: https://voicegenie.ai/enterprise
+  note: >-
+    Enterprise is a contact-sales tier gated behind a form (monthly call volume + primary use case);
+    no price is published. The pricing FAQ says small businesses wanting custom limits and quotas may
+    also request it.
+free_trial:
+  available: true
+  length: 7 days
+  included: 30 voice minutes
+  note: Unused trial minutes expire at the end of the 7 days; no feature restrictions are applied.
+quota_policy:
+  rollover: false
+  note: >-
+    Published FAQ - "All your quota expires with the end of your subscription interval. If you are
+    monthly plan it will renew every month without any roll over."
+payment_methods:
+- Credit Cards
+setup_fees: none
+cancellation: >-
+  Subscriptions can be cancelled at any time; the existing plan continues to work until it expires.
+  Plan upgrades/downgrades take effect at renewal.
+api_note: >-
+  Plans are metered in voice minutes, not API calls. No API-specific plan, quota or key tier is
+  published; the Public REST API is available to any workspace with a generated token.
+x-evidence:
+- url: https://voicegenie.ai/pricing
+  status: 200
+  fetched: '2026-08-14'
+- url: https://voicegenie.ai/enterprise
+  status: 200
+  fetched: '2026-08-14'

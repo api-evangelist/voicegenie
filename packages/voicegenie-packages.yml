@@ -1,0 +1,50 @@
+generated: '2026-08-14'
+method: searched
+source: public package registries + https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  VoiceGenie ships no client libraries. The Public REST API is documented exclusively as raw curl
+  calls and as no-code recipes for n8n, Zapier, Zoho Flow, Pabbly, HubSpot, HighLevel and Cal.com -
+  the docs never reference an SDK, a helper library, or a CLI, and no apis.yml SDK/CLI/SourceCode
+  link exists to derive a candidate from. No SDKs pointer is emitted in apis.yml, because there is no
+  client library to point at.
+registries_searched:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=voicegenie
+  status: 200
+  results: 0
+- registry: pypi
+  query: https://pypi.org/pypi/voicegenie/json
+  status: 404
+  results: 0
+- registry: github
+  query: https://api.github.com/search/repositories?q=voicegenie+in:name
+  status: 200
+  results: 0
+  note: >-
+    19 name matches exist, none owned by VoiceGenie / Ori Labs Ltd. There is no github.com/voicegenie
+    organization (HTTP 404); github.com/voiceGenie is an unrelated personal user account.
+- registry: maven-central
+  results: 0
+- registry: nuget
+  results: 0
+- registry: rubygems
+  results: 0
+- registry: packagist
+  results: 0
+- registry: crates.io
+  results: 0
+- registry: pkg.go.dev
+  results: 0
+x-evidence:
+- url: https://registry.npmjs.org/-/v1/search?text=voicegenie
+  status: 200
+  fetched: '2026-08-14'
+- url: https://pypi.org/pypi/voicegenie/json
+  status: 404
+  fetched: '2026-08-14'
+- url: https://api.github.com/orgs/voicegenie
+  status: 404
+  fetched: '2026-08-14'

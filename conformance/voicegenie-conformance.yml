@@ -1,6 +1,6 @@
 generated: '2026-07-21'
 method: derived
-source: openapi/voicegenie-openapi.yml
+source: openapi/_original/voicegenie-openapi.yml
 note: >-
   Derived from the generated OpenAPI and the public developer docs. VoiceGenie publishes no
   certifications or a compliance/trust program, so no Compliance pointer is emitted.

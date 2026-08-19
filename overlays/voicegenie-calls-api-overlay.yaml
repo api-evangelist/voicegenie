@@ -1,0 +1,41 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the VoiceGenie Calls API
+  version: 1.0.1
+extends: openapi/voicegenie-calls-api-openapi.yml
+x-generated: '2026-08-14'
+x-method: generated
+x-note: >-
+  Supersedes overlays/voicegenie-openapi-overlay.yaml, which extended openapi/voicegenie-openapi.yml -
+  a path that no longer exists since the spec was refined into one document per tag (the original is
+  archived at openapi/_original/voicegenie-openapi.yml). Never mutates the underlying OpenAPI.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-08-14'
+    x-api-evangelist-provider: voicegenie
+    x-authentication: authentication/voicegenie-authentication.yml
+    x-conventions: conventions/voicegenie-conventions.yml
+    x-errors: errors/voicegenie-problem-types.yml
+    x-webhooks: asyncapi/voicegenie-webhooks.yml
+    x-data-model: data-model/voicegenie-data-model.yml
+    x-rate-limits: rate-limits/voicegenie-rate-limits.yml
+    x-plans: plans/voicegenie-plans-pricing.yml
+    x-sandbox: sandbox/voicegenie-sandbox.yml
+- target: $.info
+  update:
+    x-idempotency: none
+    x-idempotency-note: >-
+      No idempotency key is supported. A retried placeCall places a second real phone call and
+      consumes additional plan minutes.
+- target: $.paths['/api/v1/publicRestApiActions/placeCall'].post
+  update:
+    x-agent-consequence: physical
+    x-note: >-
+      Initiates a live outbound phone call to a real customer number and bills plan minutes. Not
+      idempotent and not reversible; there is no test-mode credential, so a rehearsal is
+      indistinguishable from production at the API layer (see sandbox/voicegenie-sandbox.yml).
+- target: $.paths['/api/v1/publicRestApiActions/callAnalysisOrStatus'].post
+  update:
+    x-agent-consequence: read
+    x-note: Read-only retrieval of a call transcript or state; safe to poll.

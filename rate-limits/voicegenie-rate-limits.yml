@@ -1,0 +1,33 @@
+generated: '2026-08-14'
+method: searched
+source: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration
+limit_count: 0
+limits: []
+headers:
+  request: []
+  response: []
+  note: >-
+    No rate-limit response headers (X-RateLimit-*, RateLimit-*, Retry-After) are documented anywhere
+    in the VoiceGenie developer documentation, and none could be observed because every unauthenticated
+    request to core-saas.voicegenie.ai is answered with HTTP 401 before any limiter is reached.
+exhaustion_status: null
+note: >-
+  VoiceGenie publishes no API rate limits. The Public API Integration reference and Developer
+  documentation 1.0 pages document only endpoints, payload fields and example curl calls - there is no
+  throttling, quota-per-key, burst or concurrency section. The only published consumption ceiling is
+  commercial, not per-request - each plan includes a fixed pool of voice minutes per month
+  (see plans/voicegenie-plans-pricing.yml), with no roll-over and a paid 250-minute add-on pack.
+  An honest zero: this is a documented absence, not an unchecked field.
+x-evidence:
+- url: https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration.md
+  status: 200
+  fetched: '2026-08-14'
+  finding: no rate-limit, throttling or quota-per-key section
+- url: https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0.md
+  status: 200
+  fetched: '2026-08-14'
+  finding: authentication + endpoints only, no limits
+- url: https://core-saas.voicegenie.ai/openapi.json
+  status: 401
+  fetched: '2026-08-14'
+  finding: 'API host returns {"statusCode":401,"message":"Session expired. Please log in again"} for every unauthenticated path, so runtime headers cannot be observed anonymously'

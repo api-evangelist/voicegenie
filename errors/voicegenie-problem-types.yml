@@ -1,6 +1,6 @@
 generated: '2026-07-21'
 method: derived
-source: openapi/voicegenie-openapi.yml
+source: openapi/_original/voicegenie-openapi.yml
 format: json
 note: >-
   VoiceGenie does not publish an RFC 9457 problem-type registry or a numeric error-code reference.
@@ -12,19 +12,19 @@ problems:
   detail: >-
     token/apiKey, workspaceId, campaignId (and customerNumber where required) must all be present and
     be strings.
-  source_operation: openapi/voicegenie-openapi.yml#pushCallToCampaign
+  source_operation: openapi/voicegenie-campaigns-api-openapi.yml#pushCallToCampaign
 - status: 400
   title: Malformed customerNumber
   detail: >-
     customerNumber must be E.164 (country code with a leading plus sign, no spaces, hyphens or
     brackets). Rejected examples: "0909090909" (no country code), "09 09009009" (space),
     "(+109)-(090)-(0909)" (disallowed characters).
-  source_operation: openapi/voicegenie-openapi.yml#placeCall
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#placeCall
 - status: 400
   title: Invalid action value
   detail: 'action must be one of the documented enums: analysis|status (callAnalysisOrStatus) or pause|resume (editCampaign).'
-  source_operation: openapi/voicegenie-openapi.yml#editCampaign
+  source_operation: openapi/voicegenie-campaigns-api-openapi.yml#editCampaign
 - status: 401
   title: Invalid credentials
   detail: The supplied apiKey/token or workspaceId is missing or invalid.
-  source_operation: openapi/voicegenie-openapi.yml#placeCall
+  source_operation: openapi/voicegenie-calls-api-openapi.yml#placeCall

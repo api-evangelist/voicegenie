@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VoiceGenie Public REST Calls Campaigns API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Campaigns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a call to a recurring campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://core-saas.voicegenie.ai/api/v1/pushCallToCampaign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queue a new call for a customer number inside an existing recurring campaign. The token, workspaceId, campaignId and customerNumber must be present strings; customerNumber must be in E.164 format (leading country code with a plus sign, no spaces, hyphens or brackets)."
+        },
+        {
+          "info": {
+            "name": "Pause or resume a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/editCampaign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pause or resume a running campaign by specifying the campaignId and desired action."
+        },
+        {
+          "info": {
+            "name": "Remove a customer from a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://core-saas.voicegenie.ai/api/v1/publicRestApiActions/pullCustomerFromCampaign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a specific customer number from an ongoing campaign to stop further outreach. customerNumber must be E.164 formatted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
