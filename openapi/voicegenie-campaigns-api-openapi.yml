@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: VoiceGenie Public REST Calls Campaigns API
+  title: VoiceGenie Public REST Campaigns API
   version: '1.0'
-  description: The VoiceGenie Public REST API lets you automate voice workflows by connecting VoiceGenie to external tools like n8n, Zoho Flow, Zapier, or custom applications. You can programmatically place calls, add calls to recurring campaigns, pause/resume campaigns, fetch call analysis and status, retrieve inbound-call updates, check transfer status, and remove customers from a campaign. Authentication is performed by including an API token (apiKey/token) and a workspaceId in the JSON request payload; generate the token from the dashboard under Developer APIs / System -> APIs. This description was generated from VoiceGenie's public developer documentation; request and response bodies reflect the documented fields.
+  description: The VoiceGenie Public REST API lets you automate voice workflows by connecting VoiceGenie to external tools like n8n, Zoho Flow, Zapier, or custom applications.
   contact:
     name: VoiceGenie Support
     email: support@voicegenie.ai
@@ -130,13 +130,21 @@ components:
         first_name: John
         last_name: Doe
         email: john@example.com
-    ErrorResponse:
+    PullCustomerRequest:
       type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - customerNumber
       properties:
-        success:
-          type: boolean
-          example: false
-        message:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
           type: string
     EditCampaignRequest:
       type: object
@@ -176,19 +184,11 @@ components:
           description: E.164 phone number, e.g. "+10000000000".
         customerInformation:
           $ref: '#/components/schemas/CustomerInformation'
-    PullCustomerRequest:
+    ErrorResponse:
       type: object
-      required:
-      - apiKey
-      - workspaceId
-      - campaignId
-      - customerNumber
       properties:
-        apiKey:
-          type: string
-        workspaceId:
-          type: string
-        campaignId:
-          type: string
-        customerNumber:
+        success:
+          type: boolean
+          example: false
+        message:
           type: string
