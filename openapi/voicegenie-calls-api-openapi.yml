@@ -144,22 +144,20 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    GenericResponse:
+    ErrorResponse:
       type: object
-      description: Generic success envelope (shape not fully documented publicly).
       properties:
         success:
           type: boolean
+          example: false
         message:
           type: string
-    CallAnalysisRequest:
+    CampaignScopedRequest:
       type: object
       required:
       - apiKey
       - workspaceId
       - campaignId
-      - customerNumber
-      - action
       properties:
         apiKey:
           type: string
@@ -167,13 +165,6 @@ components:
           type: string
         campaignId:
           type: string
-        customerNumber:
-          type: string
-        action:
-          type: string
-          enum:
-          - analysis
-          - status
     PlaceCallRequest:
       type: object
       required:
@@ -202,12 +193,14 @@ components:
         first_name: John
         last_name: Doe
         email: john@example.com
-    CampaignScopedRequest:
+    CallAnalysisRequest:
       type: object
       required:
       - apiKey
       - workspaceId
       - campaignId
+      - customerNumber
+      - action
       properties:
         apiKey:
           type: string
@@ -215,11 +208,18 @@ components:
           type: string
         campaignId:
           type: string
-    ErrorResponse:
+        customerNumber:
+          type: string
+        action:
+          type: string
+          enum:
+          - analysis
+          - status
+    GenericResponse:
       type: object
+      description: Generic success envelope (shape not fully documented publicly).
       properties:
         success:
           type: boolean
-          example: false
         message:
           type: string
