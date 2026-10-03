@@ -144,27 +144,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-    CampaignScopedRequest:
-      type: object
-      required:
-      - apiKey
-      - workspaceId
-      - campaignId
-      properties:
-        apiKey:
-          type: string
-        workspaceId:
-          type: string
-        campaignId:
-          type: string
     PlaceCallRequest:
       type: object
       required:
@@ -215,6 +194,27 @@ components:
           enum:
           - analysis
           - status
+    CampaignScopedRequest:
+      type: object
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      properties:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
     GenericResponse:
       type: object
       description: Generic success envelope (shape not fully documented publicly).

@@ -113,6 +113,31 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    CustomerInformation:
+      type: object
+      description: Optional key/value strings passed through as dynamic variables into the script.
+      additionalProperties:
+        type: string
+      example:
+        first_name: John
+        last_name: Doe
+        email: john@example.com
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+    GenericResponse:
+      type: object
+      description: Generic success envelope (shape not fully documented publicly).
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
     PushCallRequest:
       type: object
       required:
@@ -132,39 +157,6 @@ components:
           description: E.164 phone number, e.g. "+10000000000".
         customerInformation:
           $ref: '#/components/schemas/CustomerInformation'
-    ErrorResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-    PullCustomerRequest:
-      type: object
-      required:
-      - apiKey
-      - workspaceId
-      - campaignId
-      - customerNumber
-      properties:
-        apiKey:
-          type: string
-        workspaceId:
-          type: string
-        campaignId:
-          type: string
-        customerNumber:
-          type: string
-    CustomerInformation:
-      type: object
-      description: Optional key/value strings passed through as dynamic variables into the script.
-      additionalProperties:
-        type: string
-      example:
-        first_name: John
-        last_name: Doe
-        email: john@example.com
     EditCampaignRequest:
       type: object
       required:
@@ -184,11 +176,19 @@ components:
           enum:
           - pause
           - resume
-    GenericResponse:
+    PullCustomerRequest:
       type: object
-      description: Generic success envelope (shape not fully documented publicly).
+      required:
+      - apiKey
+      - workspaceId
+      - campaignId
+      - customerNumber
       properties:
-        success:
-          type: boolean
-        message:
+        apiKey:
+          type: string
+        workspaceId:
+          type: string
+        campaignId:
+          type: string
+        customerNumber:
           type: string
