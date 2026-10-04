@@ -144,13 +144,12 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    PlaceCallRequest:
+    CampaignScopedRequest:
       type: object
       required:
       - apiKey
       - workspaceId
       - campaignId
-      - customerNumber
       properties:
         apiKey:
           type: string
@@ -158,20 +157,6 @@ components:
           type: string
         campaignId:
           type: string
-        customerNumber:
-          type: string
-          description: E.164 phone number, e.g. "+1234567890".
-        customerInformation:
-          $ref: '#/components/schemas/CustomerInformation'
-    CustomerInformation:
-      type: object
-      description: Optional key/value strings passed through as dynamic variables into the script.
-      additionalProperties:
-        type: string
-      example:
-        first_name: John
-        last_name: Doe
-        email: john@example.com
     CallAnalysisRequest:
       type: object
       required:
@@ -194,12 +179,13 @@ components:
           enum:
           - analysis
           - status
-    CampaignScopedRequest:
+    PlaceCallRequest:
       type: object
       required:
       - apiKey
       - workspaceId
       - campaignId
+      - customerNumber
       properties:
         apiKey:
           type: string
@@ -207,6 +193,11 @@ components:
           type: string
         campaignId:
           type: string
+        customerNumber:
+          type: string
+          description: E.164 phone number, e.g. "+1234567890".
+        customerInformation:
+          $ref: '#/components/schemas/CustomerInformation'
     ErrorResponse:
       type: object
       properties:
@@ -223,3 +214,12 @@ components:
           type: boolean
         message:
           type: string
+    CustomerInformation:
+      type: object
+      description: Optional key/value strings passed through as dynamic variables into the script.
+      additionalProperties:
+        type: string
+      example:
+        first_name: John
+        last_name: Doe
+        email: john@example.com
