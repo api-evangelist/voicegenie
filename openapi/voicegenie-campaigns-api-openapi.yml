@@ -113,6 +113,22 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+    GenericResponse:
+      type: object
+      description: Generic success envelope (shape not fully documented publicly).
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
     PullCustomerRequest:
       type: object
       required:
@@ -128,14 +144,6 @@ components:
         campaignId:
           type: string
         customerNumber:
-          type: string
-    ErrorResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
           type: string
     PushCallRequest:
       type: object
@@ -156,23 +164,6 @@ components:
           description: E.164 phone number, e.g. "+10000000000".
         customerInformation:
           $ref: '#/components/schemas/CustomerInformation'
-    GenericResponse:
-      type: object
-      description: Generic success envelope (shape not fully documented publicly).
-      properties:
-        success:
-          type: boolean
-        message:
-          type: string
-    CustomerInformation:
-      type: object
-      description: Optional key/value strings passed through as dynamic variables into the script.
-      additionalProperties:
-        type: string
-      example:
-        first_name: John
-        last_name: Doe
-        email: john@example.com
     EditCampaignRequest:
       type: object
       required:
@@ -192,3 +183,12 @@ components:
           enum:
           - pause
           - resume
+    CustomerInformation:
+      type: object
+      description: Optional key/value strings passed through as dynamic variables into the script.
+      additionalProperties:
+        type: string
+      example:
+        first_name: John
+        last_name: Doe
+        email: john@example.com
