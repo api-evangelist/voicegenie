@@ -64,6 +64,139 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-VoiceGenie is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+VoiceGenie (Ori Labs Ltd.) is a conversational voice AI platform for sales automation that lets teams deploy AI voice agents to run outbound and inbound phone calls end to end. Businesses build assistants (voice bots) with a chosen voice, language, script and knowledge base, attach a phone number (via Twilio or Plivo), upload contact lists, and launch campaigns that qualify leads, book meetings, send SMS, run surveys, chase payment reminders, and hand off to human agents when needed. VoiceGenie exposes a Public REST API on core-saas.voicegenie.ai for placing calls, adding calls to recurring campaigns, pausing/resuming campaigns, fetching call analysis and status, retrieving inbound-call updates, checking transfer status, and removing customers from campaigns, plus a post-call analysis webhook, so voice workflows can be automated from n8n, Zapier, Zoho Flow, HubSpot, HighLevel, Cal.com and custom applications.
 
-Backed by: insight-partners
+**Areas:** Company · Voice AI · Conversational AI · Sales Automation · Voice Agents · Telephony · Call Center · Customer Service · Lead Generation · Webhook
+
+## VoiceGenie on APIs.io
+
+Everything profiled for VoiceGenie is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/voicegenie/](https://apis.io/providers/voicegenie/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [VoiceGenie Calls API](https://apis.io/apis/voicegenie/voicegenie-calls-api/) — Place and track voice calls.
+- [VoiceGenie Campaigns API](https://apis.io/apis/voicegenie/voicegenie-campaigns-api/) — Manage outbound/inbound campaigns and their contacts.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Voicegenie Webhooks](https://apis.io/asyncapis/voicegenie/voicegenie-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [voicegenie](https://apis.io/servers/voicegenie/voicegenie/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Voicegenie Agentic Access](https://apis.io/agentic-access/voicegenie/voicegenie-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [VoiceGenie Public REST Calls API](https://apis.io/collections/voicegenie/open-voicegenie-calls-api/)
+- [VoiceGenie Public REST Calls Campaigns API](https://apis.io/collections/voicegenie/open-voicegenie-campaigns-api/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Voicegenie Calls Api Overlay](https://apis.io/overlays/voicegenie/voicegenie-calls-api-overlay/)
+- [Voicegenie Campaigns Api Overlay](https://apis.io/overlays/voicegenie/voicegenie-campaigns-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Voicegenie Authentication](https://apis.io/security/voicegenie/voicegenie-authentication/)
+- [Voicegenie Domain Security](https://apis.io/security/voicegenie/voicegenie-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Voicegenie Plans Pricing](https://apis.io/plans/voicegenie/voicegenie-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Voicegenie Rate Limits](https://apis.io/rate-limits/voicegenie/voicegenie-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://voicegenie.ai)
+- [Documentation](https://voicegenie.gitbook.io/voicegenie-ai/developer-documentation-1.0)
+- [Getting started](https://voicegenie.gitbook.io/voicegenie-ai/welcome-to-voicegenie-ai)
+- [API reference](https://voicegenie.gitbook.io/voicegenie-ai/integrations/public-api-integration)
+- [Pricing](https://voicegenie.ai/pricing)
+- [Sign up](https://app.voicegenie.ai/)
+- [Blog](https://blogs.voicegenie.ai/)
+- [Terms of service](https://voicegenie.ai/terms)
+- [Privacy policy](https://voicegenie.ai/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 52.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 57.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 76.3 |
+
+**Agent readiness 37.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/voicegenie/](https://apis.io/providers/voicegenie/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for VoiceGenie: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/voicegenie/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
